@@ -1,0 +1,61 @@
+<mat-dialog-content class="z-10">
+  <form class="form" [formGroup]="dataForm">
+    <div class="form-group">
+      <h1 class="form-label">Tên phòng khám</h1>
+      <input type="text" name="" class="form-input" formControlName="clinicName">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Số điện thoại</h1>
+      <input type="text" name="" class="form-input" formControlName="phoneNumber">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Địa chỉ</h1>
+      <input type="text" name="" class="form-input" formControlName="address">
+    </div>
+    <div class="mt-2 ml-1 mr-1 border-2 rounded-2xl">
+      <h1 class="text-2xl">Giờ làm việc</h1>
+      <h1 class="form-label mt-3">Thứ 2 - Thứ 6</h1>
+      <div class="form-group flex justify-between">
+
+        <div class="ngx-timepicker-field-example">
+          <ngx-timepicker-field [defaultTime]="selectedTimeOpenWeek" [minutesGap]="30" [controlOnly]="true" (timeChanged)="onTimeChange1($event)"></ngx-timepicker-field>
+        </div>
+        <p>--</p>
+        <div class="ngx-timepicker-field-example">
+          <ngx-timepicker-field [defaultTime]="selectedTimeCloseWeek" [minutesGap]="30" [controlOnly]="true" (timeChanged)="onTimeChange2($event)"></ngx-timepicker-field>
+        </div>
+      </div>
+
+      <h1 class="form-label mt-3">Thứ 7</h1>
+      <div class="form-group flex justify-between">
+
+        <div class="ngx-timepicker-field-example">
+          <ngx-timepicker-field [defaultTime]="selectedTimeOpenSat" [minutesGap]="30" [controlOnly]="true" (timeChanged)="onTimeChange3($event)"></ngx-timepicker-field>
+        </div>
+        <p>--</p>
+        <div class="ngx-timepicker-field-example">
+          <ngx-timepicker-field [defaultTime]="selectedTimeCloseSat" [minutesGap]="30" [controlOnly]="true" (timeChanged)="onTimeChange4($event)"></ngx-timepicker-field>
+        </div>
+      </div>
+
+      <h1 class="form-label mt-3">Chủ nhật</h1>
+      <div class="form-group flex justify-between">
+
+        <div class="ngx-timepicker-field-example">
+          <ngx-timepicker-field [defaultTime]="selectedTimeOpenSun" [minutesGap]="30" [controlOnly]="true" (timeChanged)="onTimeChange5($event)"></ngx-timepicker-field>
+        </div>
+        <p>--</p>
+        <div class="ngx-timepicker-field-example">
+          <ngx-timepicker-field [defaultTime]="selectedTimeCloseSun" [minutesGap]="30" [controlOnly]="true" (timeChanged)="onTimeChange6($event)"></ngx-timepicker-field>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="warn" >Hủy</button>
+  <button mat-raised-button color="primary" (click)="handleSubmit()">Sửa phòng khám</button>
+</mat-dialog-actions>
+

@@ -1,0 +1,81 @@
+<mat-dialog-content class="z-10">
+  <form class="form" [formGroup]="dataForm">
+    <div class="form-group">
+      <h1 class="form-label">Tên bác sĩ</h1>
+      <input type="text" name="" class="form-input" formControlName="fullName">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Email</h1>
+      <input type="email" formControlName="email" name="" class="form-input">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Mật khẩu</h1>
+      <input type="password" name="" class="form-input" formControlName="password">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Nhập lại mật khẩu</h1>
+      <input type="password" name="" class="form-input" formControlName="confirmPassword">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Số điện thoại</h1>
+      <input type="text" name="" class="form-input" formControlName="phoneNumber">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Địa chỉ</h1>
+      <input type="text" name="" class="form-input" formControlName="address">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Ảnh</h1>
+      <input type="text" name="" class="form-input" formControlName="doctorAvatar">
+    </div>
+    <h1 class="title-course">Giới tính</h1>
+    <div class="radio-group flex flex-col">
+      <label>
+        <input type="radio" class="radio" value="Nam" formControlName="doctorGender"/>Nam
+      </label>
+      <label>
+        <input type="radio" class="radio" value="Nu" formControlName="doctorGender"/>Nữ
+      </label>
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Ngày sinh</h1>
+      <mat-form-field class="example-full-width">
+        <mat-label>Chọn ngày</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="doctorDob" (dateChange)="onDateChange($event.value)">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+    <h1 class="form-label">Danh sách các chuyên khoa</h1>
+    <mat-form-field>
+      <mat-label>Chuyên khoa</mat-label>
+      <mat-select formControlName="doctorSpeciality">
+        @for (speciality of listSpeciality; track speciality.id) {
+          <mat-option [value]="speciality.id">{{ speciality.specialityName }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Năm kinh nghiệm</h1>
+      <input type="number" name="" class="form-input" formControlName="doctorExperience">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Phí tham khảo(VNĐ)</h1>
+      <input type="number" name="" class="form-input" formControlName="consultFee">
+    </div>
+    <div class="form-group">
+      <h1 class="form-label">Mô tả</h1>
+      <textarea matInput type="text" class="form-input" formControlName="doctorDescription"></textarea>
+    </div>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="warn">Hủy</button>
+  <button mat-raised-button color="primary" (click)="handleSubmit()">Thêm bác sĩ</button>
+</mat-dialog-actions>

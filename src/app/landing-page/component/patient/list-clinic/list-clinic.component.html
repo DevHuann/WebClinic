@@ -1,0 +1,84 @@
+<div class="content">
+  <div class="head-content">
+    <div class="group-search">
+      <input type="text" class="search" placeholder="Search" [(ngModel)]="search">
+      <button class="btn-search" (click)="handleSearch()">Tìm kiếm</button>
+    </div>
+  </div>
+  <table mat-table [dataSource]="listClinic" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="clinicName">
+      <th mat-header-cell *matHeaderCellDef> Tên phòng khám </th>
+      <td mat-cell *matCellDef="let element"> {{element.clinicName}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef> Số điện thoại </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Địa chỉ </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="view">
+      <th mat-header-cell *matHeaderCellDef> Xem </th>
+      <td mat-cell *matCellDef="let element"> <button mat-mini-fab aria-label="Example icon button with a delete icon" (click)="handleView(element.id)" class="edit">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<!--  <table>-->
+<!--    <thead>-->
+<!--    <tr class="table-heading">-->
+<!--      <th>Email</th>-->
+<!--      <th>Số điện thoại</th>-->
+<!--      <th>Tên phòng khám</th>-->
+<!--      <th>Địa chỉ</th>-->
+<!--      <th width="160">Trạng thái</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--      @for (clinic of listClinic;track clinic.id){-->
+<!--        <tr>-->
+<!--          <td>{{clinic.email}}</td>-->
+<!--          <td>{{clinic.phoneNumber}}</td>-->
+<!--          <td>{{clinic.clinicName}}</td>-->
+<!--          <td>{{clinic.address}}</td>-->
+<!--          <td class="flex">-->
+<!--            <button mat-mini-fab aria-label="Example icon button with a delete icon" (click)="handleView(clinic.id)" class="edit">-->
+<!--              <mat-icon>visibility</mat-icon>-->
+<!--            </button>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--      }-->
+
+<!--    </tbody>-->
+<!--  </table>-->
+  <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 showFirstLastButtons
+                 (page) = "change($event)"
+  >
+  </mat-paginator>
+</div>
+

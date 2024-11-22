@@ -1,0 +1,64 @@
+.main-layout {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .sidenav {
+    width: 300px;
+    @apply  text-white;
+    background-color: #00001a;
+    .wrap-sidenav {
+      @apply px-3;
+      .sidenav-title {
+        @apply my-12 text-2xl px-3
+      }
+      .menu {
+        @apply w-full;
+        mat-expansion-panel {
+          @apply bg-blue-500 text-white shadow-none text-lg
+        }
+        .menu-item {
+          @apply text-lg px-3 py-2 mb-2 cursor-pointer transition-all rounded-xl;
+          &:hover {
+            @apply bg-gray-300  text-black;
+          }
+        }
+        .active {
+          @apply bg-gray-300  text-black;
+        }
+      }
+    }
+
+  }
+  .group-avatar {
+    @apply flex items-center cursor-pointer relative;
+    .avatar {
+      @apply rounded-full w-8
+    }
+    .title {
+      @apply ml-2 text-base;
+    }
+    .func {
+      @apply absolute top-8 right-0 border z-10 bg-white rounded-xl text-base;
+      .item-func {
+        @apply px-3 py-2 my-4;
+        &:hover{
+          @apply bg-gray-200;
+        }
+      }
+    }
+  }
+  mat-sidenav-content {
+    @apply h-full;
+  }
+  .wrap-content {
+    @apply m-4
+  }
+}
+
+
+
+.spacer {
+  flex: 1 1 auto;
+}

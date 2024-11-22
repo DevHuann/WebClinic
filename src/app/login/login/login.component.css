@@ -1,0 +1,39 @@
+.wrapper-content {
+  @apply min-h-screen flex justify-center items-center py-8;
+  background-image: url("https://accounts.fullstack.edu.vn/static/media/f8_bg_auth_1920.b517075e98f3051de678.png");
+  .content {
+    @apply bg-white rounded-xl p-8 flex flex-col items-center shadow-2xl;
+    .icon {
+      @apply w-10;
+    }
+    .content-title{
+      @apply text-3xl font-black text-center my-6 md:px-12;
+    }
+    .form {
+      @apply flex flex-col w-80;
+      .form-group{
+        .form-label {
+          @apply py-2 font-medium text-lg;
+        }
+        .form-input {
+          @apply w-full py-2 px-4 rounded-xl border ;
+        }
+      }
+      .form-btn {
+        @apply text-center;
+        .btn {
+          @apply border rounded-full mt-6 py-2 px-6 bg-blue-600 text-white;
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+      .link{
+        @apply text-blue-600;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

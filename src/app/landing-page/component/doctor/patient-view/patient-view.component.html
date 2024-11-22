@@ -1,0 +1,38 @@
+<div>
+  <div>
+<p>{{patient.fullName}}</p>
+  </div>
+  <div>
+    <button class="bg-blue-500 pl-3 pr-3 pt-1 pb-1 rounded text-white">Thêm đơn thuốc</button>
+    <button class="bg-blue-500 pl-3 pr-3 pt-1 pb-1 rounded text-white" (click)="handleAddAppointment(patient)">Tạo cuộc hẹn mới</button>
+  </div>
+</div>
+<mat-tab-group dynamicHeight>
+  <mat-tab label="Thông tin đơn thuốc">
+    <div class="">
+      Small content
+    </div>
+  </mat-tab>
+  <mat-tab label="Lịch sử cuộc hẹn">
+    <div class="">
+      <table>
+        <thead>
+        <tr class="table-heading">
+          <th>Ngày</th>
+          <th>Giờ</th>
+          <th>Điều trị</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (appointment of appointmentsHistory;track appointment.id){
+            <tr>
+              <td>{{appointment.appDate}}</td>
+              <td>{{appointment.appTime}}</td>
+              <td>{{appointment.treatmentType}}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+</mat-tab-group>

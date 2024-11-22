@@ -1,0 +1,21 @@
+<div class="wrapper-content">
+  <div class="content">
+    <!--    <img src="./assets/img/img.png" class="icon" alt="">-->
+    <h1 class="content-title">Đăng nhập vào Clinic</h1>
+    <form class="form" [formGroup]="dataForm" (submit)="handleSubmit()">
+      <div class="form-group">
+        <h1 class="form-label">Email</h1>
+        <input type="text" name="" formControlName="userName" class="form-input" >
+      </div>
+      <div class="form-group">
+        <h1 class="form-label">Mật khẩu</h1>
+        <input type="password" name="" formControlName="password" class="form-input" >
+      </div>
+      @if(isSubmit){
+        <h1 class="text-center text-red-600 mt-4">Vui lòng nhập tài khoản hoặc mật khẩu !</h1>
+      }
+      <div class="form-btn"><button class="btn">Đăng nhập</button></div>
+      <div class="pt-3 flex justify-center">Bạn chưa có tài khoản?<p routerLink="/signup" class="link">Đăng Ký</p></div>
+    </form>
+  </div>
+</div>

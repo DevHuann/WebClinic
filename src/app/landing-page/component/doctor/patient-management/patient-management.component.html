@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="head-content">
+
+  </div>
+    <table>
+      <thead>
+      <tr class="table-heading">
+        <th>Email</th>
+        <th>Tên bệnh nhân</th>
+        <th>Số điện thoại</th>
+        <th>Địa chỉ</th>
+        <th width="160">Xem chi tiết</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (patient of listPatient;track patient.id){
+          <tr>
+            <td>{{patient.email}}</td>
+            <td>{{patient.fullName}}</td>
+            <td>{{patient.phoneNumber}}</td>
+            <td>{{patient.address}}</td>
+            <td class="flex">
+              <button mat-mini-fab aria-label="Example icon button with a delete icon" (click)="handleView(patient.id)" class="edit">
+                <mat-icon>visibility</mat-icon>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+</div>
+
+

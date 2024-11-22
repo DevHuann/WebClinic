@@ -1,0 +1,26 @@
+.content {
+  .title {
+    @apply text-4xl font-bold text-blue-700 mt-4 mb-8;
+  }
+  .head-content {
+    @apply flex justify-between my-4;
+    .btn {
+      @apply border bg-blue-600 rounded py-2 px-3 text-white;
+    }
+  }
+  table {
+    width: 100%;
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    .table-heading {
+      @apply bg-gray-300
+    }
+    .edit {
+      @apply mr-3
+    }
+  }
+}
+

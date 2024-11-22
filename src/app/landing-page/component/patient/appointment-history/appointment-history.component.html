@@ -1,0 +1,47 @@
+<h5>Danh sách cuộc hẹn</h5>
+<div class="flex w-full justify-evenly">
+  <div>
+    <p>Lịch sử cuộc hẹn</p>
+    @for (app of appointmentsCompleted;track app.id){
+      <div class="pl-10 pr-10 m-2 shadow shadow-gray-200 rounded-2xl flex justify-between">
+        <div class="pr-10">
+          <p class="font-bold">Dr.{{app.doctor.fullName}}</p>
+          <p>{{app.doctor.doctorSpeciality}}</p>
+          <p>{{app.appTime}} {{formatIsoDate(app.appDate)}}</p>
+        </div>
+        <div class="mt-auto mb-auto ml-10 flex">
+          @if (!app.isReviewed){
+            <button (click)="handleReview(app)" class="bg-amber-500 h-7 pl-2 pr-2 text-white rounded">Đánh giá</button>
+          } @else {
+            <div class="relative flex">
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+            </div>
+            <div class="absolute flex text-amber-500">
+              @for (star of getArray(app.review.rating);track star){
+                <mat-icon>star</mat-icon>
+              }
+            </div>
+
+          }
+        </div>
+
+
+      </div>
+    }
+
+  </div>
+  <div class="">
+    <p>Cuộc hẹn đang hoạt động</p>
+    @for (app of appointmentsActive;track app.id){
+      <div class="pl-20 pr-20 m-2 shadow shadow-gray-200 rounded-2xl">
+        <p class="font-bold">Dr.{{app.doctor.fullName}}</p>
+        <p>{{app.doctor.doctorSpeciality}}</p>
+        <p>{{app.appTime}} {{formatIsoDate(app.appDate)}}</p>
+      </div>
+    }
+  </div>
+</div>

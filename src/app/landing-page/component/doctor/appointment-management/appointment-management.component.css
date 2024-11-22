@@ -1,0 +1,21 @@
+
+.demo-inline-calendar-card {
+  width: 300px;
+}
+table {
+  width: 100%;
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  .table-heading {
+    @apply bg-gray-300
+  }
+  .edit {
+    @apply mr-3
+  }
+  span{
+    @apply text-xs rounded pt-1 pb-1 pl-3 pr-3;
+  }
+}

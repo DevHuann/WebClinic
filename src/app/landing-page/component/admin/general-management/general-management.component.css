@@ -1,0 +1,17 @@
+.content {
+  .list-func {
+    @apply flex border-b-2 py-2;
+    .item-func {
+      @apply mr-2 px-3 cursor-pointer transition-all ;
+      &:hover {
+        @apply text-orange-500 ;
+      }
+    }
+    .active {
+      @apply text-orange-500
+    }
+  }
+  .content-func {
+
+  }
+}

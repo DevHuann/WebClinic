@@ -1,0 +1,39 @@
+<mat-sidenav-container class="main-layout">
+  <mat-sidenav #sidenav mode="side" [opened]="isOpen" class="sidenav">
+    <div class="wrap-sidenav">
+      <h1 class="sidenav-title">Hệ thống quản lí</h1>
+      <ul class="menu">
+        <p>Chính</p>
+        <li class="menu-item" routerLink="/clinic/clinic-dashboard" routerLinkActive="active" >Bảng thống kê</li>
+        <li class="menu-item" routerLink="/clinic/doctor-management" routerLinkActive="active" >Quản lý bác sĩ</li>
+        <li class="menu-item" routerLink="/clinic/patient-management" routerLinkActive="active" >Quản lí bệnh nhân</li>
+        <li class="menu-item" routerLink="/clinic/appointment-management" routerLinkActive="active" >Quản lí lịch hẹn</li>
+        <p>Khác</p>
+        <li class="menu-item" routerLink="/clinic/announcement" routerLinkActive="active" >Thông báo</li>
+        <li class="menu-item" routerLink="/clinic/report" routerLinkActive="active" >Báo cáo</li>
+      </ul>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <ng-container>
+        <div class="group-avatar" (click)="handleClick()">
+          <img src="./assets/img/img.png" alt="" class="avatar">
+          <h2 class="title">{{user.fullName}}</h2>
+          @if(isFuncAvatar){
+            <ul class="func" >
+              <li class="item-func" (click)="handleLogout()">Đăng xuất</li>
+            </ul>
+          }
+        </div>
+      </ng-container>
+    </mat-toolbar>
+    <div class="wrap-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

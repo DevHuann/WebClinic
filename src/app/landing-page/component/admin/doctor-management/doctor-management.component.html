@@ -1,0 +1,49 @@
+<div class="content">
+  <h1 class="title">Quản lí bác sĩ</h1>
+  <div class="head-content">
+    <div class="group-search">
+      <input type="text" class="search" placeholder="Search" [(ngModel)]="search">
+      <button class="btn-search" (click)="handleSearch()">Tìm kiếm</button>
+    </div>
+    <button class="btn" (click)="handleAdd()">Thêm bác sĩ</button>
+
+  </div>
+  <table>
+    <thead>
+    <tr class="table-heading">
+      <th>Email</th>
+      <th>Số điện thoại</th>
+      <th>Tên bác sĩ</th>
+      <th>Ngày thêm</th>
+      <th width="160">Trạng thái</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (doctor of listDoctor;track doctor.id){
+        <tr>
+          <td>{{doctor.email}}</td>
+          <td>{{doctor.phoneNumber}}</td>
+          <td>{{doctor.fullName}}</td>
+          <td>{{formatIsoDate(doctor.dateCreated)}}</td>
+          <td class="flex">
+            <button mat-mini-fab aria-label="Example icon button with a delete icon" (click)="handleEdit(doctor)" class="edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-mini-fab aria-label="Example icon button with a delete icon" (click)="handleDelete(doctor.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+          </td>
+        </tr>
+      }
+
+    </tbody>
+  </table>
+  <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 showFirstLastButtons
+                 (page) = "change($event)"
+  >
+  </mat-paginator>
+</div>

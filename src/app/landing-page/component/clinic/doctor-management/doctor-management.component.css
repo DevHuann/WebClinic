@@ -1,7 +1,4 @@
 .content {
-  .title {
-    @apply text-4xl font-bold text-blue-700 mt-4 mb-8;
-  }
   .head-content {
     @apply flex justify-between my-4;
     .btn {

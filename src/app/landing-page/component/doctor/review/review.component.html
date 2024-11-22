@@ -1,9 +1,10 @@
+<h1 class="title" >Đánh giá</h1>
 <div class="flex w-full">
   <div class="reviews w-3/5">
     @for (review of reviews;track review.id){
-      <div class="pl-10 pr-10 m-2 shadow shadow-gray-200 rounded-2xl mb-3">
+      <div class="pl-10 pr-10 m-2 border-2 shadow shadow-gray-300 rounded-2xl mb-3">
         <div class="flex justify-between pt-2 pb-3">
-          <p class="ml-5">{{review.patient.fullName}}</p>
+          <p class="ml-5 font-bold">{{review.patient.fullName}}</p>
           <p>{{formatIsoDate(review.date)}}</p>
         </div>
         <hr>
@@ -28,7 +29,7 @@
     }
   </div>
   <div class="w-2/5">
-    <div class="p-4 m-2 shadow shadow-gray-200 rounded-2xl mb-3">
+    <div class="p-4 m-2 shadow-xl shadow-gray-300 rounded-2xl mb-3">
       <p class="text-4xl">{{avg}}/5 <mat-icon class="text-amber-500">star</mat-icon></p>
       <div class="p-3">
         <div>

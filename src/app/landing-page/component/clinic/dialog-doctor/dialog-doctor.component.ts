@@ -6,12 +6,9 @@ import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 import {LandingPageService} from '../../../services/landing-page.service';
 import {DialogRef} from '@angular/cdk/dialog';
 import {CreateDoctorRequest} from '../../../models/createDoctorRequest';
-import {
-  MatDatepicker,
-  MatDatepickerInput,
-  MatDatepickerToggle,
-  MatDatepickerToggleIcon
-} from '@angular/material/datepicker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatFormField, MatHint, MatLabel, MatSuffix} from '@angular/material/form-field';
 import {MatIcon} from '@angular/material/icon';
 import {MatInput} from '@angular/material/input';
@@ -31,10 +28,6 @@ import {LoginService} from '../../../../login/services/login.service';
     MatDialogContent,
     NgxMaterialTimepickerModule,
     ReactiveFormsModule,
-    MatDatepicker,
-    MatDatepickerInput,
-    MatDatepickerToggle,
-    MatDatepickerToggleIcon,
     MatFormField,
     MatHint,
     MatIcon,
@@ -42,7 +35,8 @@ import {LoginService} from '../../../../login/services/login.service';
     MatLabel,
     MatSuffix,
     MatSelect,
-    MatOption
+    MatOption,
+    MatFormFieldModule, MatInputModule, MatDatepickerModule
   ],
   templateUrl: './dialog-doctor.component.html',
   styleUrl: './dialog-doctor.component.css'

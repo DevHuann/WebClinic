@@ -18,57 +18,68 @@ import {DialogAppointmentComponent} from '../dialog-appointment/dialog-appointme
   templateUrl: './patient-view.component.html',
   styleUrl: './patient-view.component.css'
 })
-export class PatientViewComponent implements OnInit{
-  patient:Patient={
-    id:'',
-    fullName:'',
-    address:'',
-    email:'',
-    phoneNumber:'',
-    patientAvatar:'',
-    patientIdentity:'',
-    patientNationality:'',
-    patientGender:'',
-    patientMaritalStatus:'',
-    patientDob:'',
-    patientAge:'',
-    dateCreated:'',
+export class PatientViewComponent implements OnInit {
+  patient: Patient = {
+    id: '',
+    fullName: '',
+    address: '',
+    email: '',
+    phoneNumber: '',
+    patientAvatar: '',
+    patientIdentity: '',
+    patientNationality: '',
+    patientGender: '',
+    patientMaritalStatus: '',
+    patientDob: '',
+    patientAge: '',
+    dateCreated: '',
   }
-  patientId:string=''
-  patientQueueSubscription:Subscription|undefined
-  appointmentsHistory:Appointment[]=[]
+  patientId: string = ''
+  patientQueueSubscription: Subscription | undefined
+  appointmentsHistory: Appointment[] = []
+
   constructor(
-    private landingPageService:LandingPageService,
-    private route:Router,
-    private dialog:MatDialog
+    private landingPageService: LandingPageService,
+    private route: Router,
+    private dialog: MatDialog
   ) {
   }
+
   ngOnInit(): void {
-    this.patientQueueSubscription=this.landingPageService.PatientQueue.subscribe(patientId=>{
-      if (patientId!=''){
+    this.patientQueueSubscription = this.landingPageService.PatientQueue.subscribe(patientId => {
+      if (patientId != '') {
         this.patientId = patientId;
         this.getPatientById()
         this.getAppointmentsHistory()
-      }
-      else this.route.navigate(['/doctor/patient-management'])
+      } else this.route.navigate(['/doctor/patient-management'])
     })
   }
-  private getPatientById(){
-    this.landingPageService.getPatientById(this.patientId).subscribe(res=>{
-      this.patient=res;
+
+  private getPatientById() {
+    this.landingPageService.getPatientById(this.patientId).subscribe(res => {
+      this.patient = res;
     })
   }
-  private getAppointmentsHistory(){
-    this.landingPageService.getListAppointmentCompletedByPatientId(this.patientId).subscribe(res=>
-    this.appointmentsHistory=res)
+
+  private getAppointmentsHistory() {
+    this.landingPageService.getListAppointmentCompletedByPatientId(this.patientId).subscribe(res =>
+      this.appointmentsHistory = res)
   }
 
   handleAddAppointment(patient: Patient) {
     this.dialog.open(DialogAppointmentComponent, {
       width: '20%',
-      data:patient
+      data: patient
     }).afterClosed().subscribe(res => {
       // this.getClinic();
     });
+  }
+
+  formatIsoDate(isoDate: Date): string {
+    const date = new Date(isoDate);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   }
 }

@@ -1,3 +1,4 @@
+<h1 class="title" >Thông tin bệnh nhân</h1>
 <div>
   <div>
 <p>{{patient.fullName}}</p>
@@ -26,7 +27,7 @@
         <tbody>
           @for (appointment of appointmentsHistory;track appointment.id){
             <tr>
-              <td>{{appointment.appDate}}</td>
+              <td>{{formatIsoDate(appointment.appDate)}}</td>
               <td>{{appointment.appTime}}</td>
               <td>{{appointment.treatmentType}}</td>
             </tr>

@@ -72,14 +72,11 @@ export class DialogAppointmentComponent implements OnInit {
     this.doctorId = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
     this.landingPageService.getDoctorById(this.doctorId).subscribe(res => {
       this.clinicId =res.clinicId;
-      console.log(this.clinicId);
     })
 
     this.landingPageService.getListTreatmentTypeByDoctorId(this.doctorId).subscribe(res => {
       this.listTreatmentType = res;
     })
-
-    console.log(this.clinicId);
 
     this.dataForm = this.fb.group({
       appDate: [''],

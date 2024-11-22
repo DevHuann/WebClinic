@@ -3,7 +3,7 @@
   <div>
     <p>Lịch sử cuộc hẹn</p>
     @for (app of appointmentsCompleted;track app.id){
-      <div class="pl-10 pr-10 m-2 shadow shadow-gray-200 rounded-2xl flex justify-between">
+      <div class="pl-10 pr-10 m-2 shadow shadow-gray-400 rounded-2xl flex justify-between">
         <div class="pr-10">
           <p class="font-bold">Dr.{{app.doctor.fullName}}</p>
           <p>{{app.doctor.doctorSpeciality}}</p>
@@ -37,7 +37,7 @@
   <div class="">
     <p>Cuộc hẹn đang hoạt động</p>
     @for (app of appointmentsActive;track app.id){
-      <div class="pl-20 pr-20 m-2 shadow shadow-gray-200 rounded-2xl">
+      <div class="pl-20 pr-20 m-2 shadow shadow-gray-400 rounded-2xl">
         <p class="font-bold">Dr.{{app.doctor.fullName}}</p>
         <p>{{app.doctor.doctorSpeciality}}</p>
         <p>{{app.appTime}} {{formatIsoDate(app.appDate)}}</p>

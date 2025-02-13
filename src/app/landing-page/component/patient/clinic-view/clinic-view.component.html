@@ -36,11 +36,11 @@
           <img class="w-full h-full rounded-2xl" [src]="doctor.doctorAvatar" alt="">
         </div>
         <div class="p-4">
-          <p class="text-2xl text-black font-bold pb-3">{{doctor.fullName}}</p>
+          <p class="text-2xl text-black font-bold">{{doctor.fullName}}</p>
           <p>{{doctor.doctorSpeciality}}</p>
           <p>{{doctor.email}}</p>
           <p>{{doctor.phoneNumber}}</p>
-          <button (click)="handleView(doctor.id)" class="mt-3 bg-blue-500 rounded"><p class="pl-4 pr-4 pt-1   text-white"><mat-icon class="align-middle">visibility</mat-icon>Xem</p></button>
+          <button (click)="handleView(doctor.id)" class=" bg-blue-500 rounded"><p class="pl-4 pr-4 pt-1   text-white"><mat-icon class="align-middle">visibility</mat-icon>Xem</p></button>
         </div>
       </div>
     </div>

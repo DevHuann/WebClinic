@@ -18,7 +18,7 @@ import {TreatmentType} from '../models/treatmentType';
 import {
   ListAppointmentByIdAndDateRequest
 } from '../models/listAppointmentByIdAndDateRequest';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {CreateReviewRequest} from '../models/createReviewRequest';
 import {Review} from '../models/review';
 
@@ -70,4 +70,6 @@ export class LandingPageService {
   //Review
   createReview=(data:CreateReviewRequest)=>this.httpClient.post(`${environment.api_domain}/Review/create-review`,data)
   getListReviewByDoctorId=(id:string)=>this.httpClient.get<Review[]>(`${environment.api_domain}/Review/list-review-by-doctor-id/${id}`)
+
+  checkEmailExists(email: string): Observable<boolean> {return this.httpClient.get<boolean>(`/api/email-exists?email=${encodeURIComponent(email)}`);}
 }

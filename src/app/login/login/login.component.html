@@ -1,6 +1,6 @@
 <div class="wrapper-content">
   <div class="content">
-    <!--    <img src="./assets/img/img.png" class="icon" alt="">-->
+    <!--    <img src="./assets/img/logo.png" class="icon" alt="">-->
     <h1 class="content-title">Đăng nhập vào Clinic</h1>
     <form class="form" [formGroup]="dataForm" (submit)="handleSubmit()">
       <div class="form-group">
@@ -14,6 +14,7 @@
       @if(isSubmit){
         <p class="text-center text-red-600 mt-4">Vui lòng nhập tài khoản hoặc mật khẩu !</p>
       }
+
       <div class="form-btn"><button class="btn">Đăng nhập</button></div>
       <div class="pt-3 flex justify-center">Bạn chưa có tài khoản?<p routerLink="/signup" class="link">Đăng Ký</p></div>
     </form>

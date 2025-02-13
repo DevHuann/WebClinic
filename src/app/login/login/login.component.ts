@@ -5,6 +5,8 @@ import {Router, RouterLink} from '@angular/router';
 import {NgxPermissionsModule, NgxPermissionsService} from "ngx-permissions";
 import {LoginRequest} from '../models/loginRequest';
 import {NgClass} from '@angular/common';
+import {emailExistsValidator} from '../../core/validator/checkEmailExists';
+import {LandingPageService} from '../../landing-page/services/landing-page.service';
 
 @Component({
   selector: 'app-login',
@@ -29,8 +31,8 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     this.dataForm = this.fb.group({
-      userName: ['',Validators.required],
-      password: ['',Validators.required]
+      userName: '',
+      password: ''
     })
   }
 

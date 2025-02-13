@@ -1,1 +1,88 @@
-<p routerLink="/login">home works!</p>
+<!-- Top bar -->
+<div class="bg-white py-2 text-sm border-b">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap items-center justify-between">
+      <div class="flex flex-wrap items-center gap-4">
+        <a [href]="'tel:' + emergencyNumber" class="flex items-center gap-2 text-gray-700">
+          <mat-icon class="text-green-600">phone</mat-icon>
+          <span>Cấp cứu: {{emergencyNumber}}</span>
+        </a>
+        <a [href]="'tel:' + generalNumber" class="flex items-center gap-2 text-gray-700">
+          <mat-icon class="text-green-600">phone</mat-icon>
+          <span>Tổng đài: {{generalNumber}}</span>
+        </a>
+        <a [href]="'tel:' + careNumber" class="flex items-center gap-2 text-gray-700">
+          <mat-icon class="text-green-600">phone</mat-icon>
+          <span>Trực sản (24/24): {{careNumber}}</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Main header -->
+<div class="bg-white border-b">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between w-full">
+      <a href="/" class="flex items-center">
+        <img src="./assets/images/logo.png" alt="TCI Logo" class="h-12">
+      </a>
+      <div class="flex-1 max-w-xl mx-8">
+        <mat-form-field appearance="outline" class="w-full">
+          <input matInput placeholder="Tìm kiếm" class="w-full">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="bg-green-700">
+  <div class="container mx-auto px-4">
+    <nav class="flex items-center justify-between w-full">
+      <div class="flex items-center space-x-4">
+        @for (item of navItems;track item.label)
+        {
+          <ng-container>
+          <a [href]="item.link" class="text-white px-3 py-2 rounded-md text-sm">
+            {{item.label}}
+          </a>
+          </ng-container>
+        }
+
+      </div>
+      <button routerLink="/login" class="bg-red-600 text-white rounded-l p-1">
+        Đặt lịch khám
+      </button>
+    </nav>
+  </div>
+</div>
+
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://cdn.benhvienthucuc.vn/wp-content/uploads/2024/10/uu-dai-noi-soi-tieu-hoa-t10-24-1920x500-1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://cdn.benhvienthucuc.vn/wp-content/uploads/2024/11/uu-dai-goi-kham-suc-khoe-t12-24-1920x500-1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://cdn.benhvienthucuc.vn/wp-content/uploads/2024/11/giai-chay-t11-24-1920x500-1.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

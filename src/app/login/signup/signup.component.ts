@@ -10,6 +10,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
+import {emailExistsValidator} from '../../core/validator/checkEmailExists';
+import {LandingPageService} from '../../landing-page/services/landing-page.service';
 
 @Component({
   selector: 'app-signup',
@@ -33,12 +35,12 @@ export class SignupComponent implements OnInit{
   selectedDate: Date | null = null;
   formattedDate: string | null = null;
   constructor(private fb: FormBuilder, private loginService: LoginService, private route: Router,
-              private permissionService: NgxPermissionsService) { }
+              private permissionService: NgxPermissionsService,private landingPageService : LandingPageService) { }
 
   ngOnInit(): void {
     this.dataForm = this.fb.group({
       fullName: ['',Validators.required],
-      email: ['',Validators.required],
+      email: ['',Validators.required,],
       password: ['',Validators.required],
       patientDob: ['',Validators.required]
     })

@@ -4,12 +4,17 @@ import {authGuard} from './core/guard/auth.guard';
 import {NgxPermissionsGuard} from "ngx-permissions";
 import {UnauthorizedComponent} from './core/component/unauthorized/unauthorized.component';
 import {PatientViewComponent} from './landing-page/component/doctor/patient-view/patient-view.component';
+import {SignupComponent} from './login/signup/signup.component';
+import {HomeComponent} from './home/home.component';
 export const routes: Routes = [
   {
-    path:'',component:LoginComponent
+    path:'',component:HomeComponent
   },
   {
     path: "login", component: LoginComponent
+  },
+  {
+    path:"signup",component:SignupComponent
   },
   {
     path: "unauthorized", component: UnauthorizedComponent
@@ -18,13 +23,13 @@ export const routes: Routes = [
   {
     path:'admin',
     loadComponent:()=> import('./landing-page/component/admin/admin.component').then(m=>m.AdminComponent),
-    // canActivate:[authGuard,NgxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: ["Admin"],
-    //     redirectTo: '/unauthorized'
-    //   }
-    // },
+    canActivate:[authGuard,NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ["Admin"],
+        redirectTo: '/unauthorized'
+      }
+    },
     children:[
       {
         path:'',
@@ -82,13 +87,13 @@ export const routes: Routes = [
   {
     path:'clinic',
     loadComponent:()=> import('./landing-page/component/clinic/clinic.component').then(m=>m.ClinicComponent),
-    // canActivate:[authGuard,NgxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: ["Clinic"],
-    //     redirectTo: '/unauthorized'
-    //   }
-    // },
+    canActivate:[authGuard,NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ["Clinic"],
+        redirectTo: '/unauthorized'
+      }
+    },
     children:[
       {
         path:'',
@@ -128,13 +133,13 @@ export const routes: Routes = [
   {
     path:'doctor',
     loadComponent:()=> import('./landing-page/component/doctor/doctor.component').then(m=>m.DoctorComponent),
-    // canActivate:[authGuard,NgxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: ["Doctor"],
-    //     redirectTo: '/unauthorized'
-    //   }
-    // },
+    canActivate:[authGuard,NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ["Doctor"],
+        redirectTo: '/unauthorized'
+      }
+    },
     children:[
       {
         path:'',
@@ -178,13 +183,13 @@ export const routes: Routes = [
   {
     path:'patient',
     loadComponent:()=> import('./landing-page/component/patient/patient.component').then(m=>m.PatientComponent),
-    // canActivate:[authGuard,NgxPermissionsGuard],
-    // data: {
-    //   permissions: {
-    //     only: ["Patient"],
-    //     redirectTo: '/unauthorized'
-    //   }
-    // },
+    canActivate:[authGuard,NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ["Patient"],
+        redirectTo: '/unauthorized'
+      }
+    },
     children:[
       {
         path:'appointment',
